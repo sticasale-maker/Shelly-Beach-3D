@@ -171,7 +171,7 @@ a.ghost{text-decoration:none; display:inline-block}
     <button id="v-today" aria-pressed="false">Current</button>
     <button id="v-plan" aria-pressed="true">Proposed</button>
   </div>
-  <label class="hl" for="hl"><input type="checkbox" id="hl" checked> Highlight changes</label>
+  <label class="hl" for="hl"><input type="checkbox" id="hl"> Highlight changes</label>
   <button class="fs" id="fs" hidden>Full screen</button>
   <span class="keyhint">Space to flip</span>
 </div>
@@ -329,7 +329,7 @@ const LEG = {
   plan:[[ '#e6d7bd','New sandstone paving'],['#d8b98d','New coloured concrete (BBQ area)'],['#7fb35a','New lawn'],['#4f7d3c','New native garden beds'],['#5aa6b8','Diving area resurfaced in rubber'],['#e2c7a3','New low walls, log edge, boulders'],['#7c5a3a','New tables and seats'],['#a7aead','Kept walls, furniture and trees']],
   diff:[[ '#f2a516','New: everything built or replanted'],['#a7aead','Kept: unchanged elements'],['#d7261e','Removed: existing paths and furniture']]
 };
-let view='plan', hl=true;
+let view='plan', hl=false;
 const hlBox=document.getElementById('hl');
 function setMode(v=view, h=hl){
   view=v; hl=h; hlBox.checked=h;
@@ -383,7 +383,7 @@ function showStop(i){
   document.getElementById('stop-text').textContent=s.d;
   document.getElementById('stop-count').textContent=`${i+1} / ${STOPS.length}`;
   document.getElementById('next').textContent = i===STOPS.length-1 ? 'Restart' : 'Next';
-  setMode('plan', s.hl ?? true); flyTo(pullBack(s), s.at);
+  setMode('plan', s.hl ?? false); flyTo(pullBack(s), s.at);
 }
 document.getElementById('next').onclick=()=>showStop(stop>=STOPS.length-1?0:stop+1);
 document.getElementById('prev').onclick=()=>showStop(Math.max(0,stop-1));
@@ -419,7 +419,7 @@ document.getElementById('share').addEventListener('click',()=>{ if(!shareBox.hid
 
 // ---------- run ----------
 camera.position.set(45,60,30); controls.target.set(-2,0,-18);
-setMode('plan', true);
+setMode('plan', false);
 function resize(){ const w=canvas.clientWidth||innerWidth, h=canvas.clientHeight||innerHeight; renderer.setSize(w,h,false); camera.aspect=w/h; camera.updateProjectionMatrix(); }
 addEventListener('resize',resize); resize();
 if(window.ResizeObserver) new ResizeObserver(resize).observe(canvas);
