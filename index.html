@@ -383,7 +383,7 @@ function showStop(i){
   document.getElementById('stop-text').textContent=s.d;
   document.getElementById('stop-count').textContent=`${i+1} / ${STOPS.length}`;
   document.getElementById('next').textContent = i===STOPS.length-1 ? 'Restart' : 'Next';
-  setMode('plan', s.hl ?? false); flyTo(pullBack(s), s.at);
+  setMode('plan', hl); flyTo(pullBack(s), s.at);
 }
 document.getElementById('next').onclick=()=>showStop(stop>=STOPS.length-1?0:stop+1);
 document.getElementById('prev').onclick=()=>showStop(Math.max(0,stop-1));
