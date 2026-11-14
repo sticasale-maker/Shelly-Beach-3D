@@ -84,8 +84,18 @@ a.ghost{text-decoration:none; display:inline-block}
   .switchbar{top:calc(10px + env(safe-area-inset-top,0px)); bottom:auto}
   .cp button{padding:8px 12px; min-width:80px; font-size:.88rem}
   .keyhint{display:none}
-  .card{top:auto; bottom:calc(8px + env(safe-area-inset-bottom,0px)); left:calc(8px + env(safe-area-inset-left,0px)); width:calc(100% - 16px - env(safe-area-inset-left,0px) - env(safe-area-inset-right,0px)); max-height:52%}
+  .card{top:auto; bottom:calc(8px + env(safe-area-inset-bottom,0px)); left:calc(8px + env(safe-area-inset-left,0px)); width:calc(100% - 16px - env(safe-area-inset-left,0px) - env(safe-area-inset-right,0px));
+    max-height:65%; padding-block:10px; padding-left:12px; padding-right:12px; gap:8px; border-radius:12px}
+  .card.collapsed{max-height:32%}
   .card.collapsed .more{display:none}
+  .card.collapsed .brand{padding-bottom:0; border-bottom:0}
+  .card.collapsed .tour{border-top:0; padding-top:0; gap:6px}
+  .card.collapsed .stop-text{display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; font-size:.82rem}
+  .brand-link img{width:36px; height:36px; border-radius:9px}
+  .brand-link b{font-size:.95rem}
+  .brand-link small{font-size:.68rem}
+  .stop{font-size:.95rem}
+  .nav button,.ghost{padding:5px 9px}
   .toggle{display:inline-block}
   .hint{display:none}
   h1{font-size:1.2rem}
@@ -106,7 +116,7 @@ a.ghost{text-decoration:none; display:inline-block}
     </a>
     <div class="nav">
       <button class="ghost" id="share" aria-describedby="share-status">Share</button>
-      <button class="ghost toggle" id="collapse" aria-expanded="true">Hide</button>
+      <button class="ghost toggle" id="collapse" aria-expanded="true">Less</button>
     </div>
   </div>
   <div class="sharebox" id="sharebox" hidden>
@@ -122,9 +132,9 @@ a.ghost{text-decoration:none; display:inline-block}
     </div>
   </div>
   <p class="sr-status" id="share-status" role="status" aria-live="polite"></p>
-  <p class="eyebrow">Shelly Beach, Manly · concept plan in 3D</p>
-  <h1>See what the renewal changes</h1>
-  <p class="sub">Flip between <b>Current</b> and <b>Proposed</b> at any point of the tour. Tick <b>Highlight changes</b> to colour what is new or removed.</p>
+  <p class="eyebrow more">Shelly Beach, Manly · concept plan in 3D</p>
+  <h1 class="more">See what the renewal changes</h1>
+  <p class="sub more">Flip between <b>Current</b> and <b>Proposed</b> at any point of the tour. Tick <b>Highlight changes</b> to colour what is new or removed.</p>
   <ul class="legend more" id="legend"></ul>
   <div class="finding more" id="finding">
     <b>About 440 m² of sand becomes lawn</b>
@@ -383,7 +393,10 @@ document.getElementById('copy').onclick=async()=>{
   catch(e){ inp.focus(); inp.select(); say('Link selected: press Ctrl+C (or Copy) to copy'); }
 };
 const card=document.getElementById('card'), col=document.getElementById('collapse');
-col.onclick=()=>{ const c=card.classList.toggle('collapsed'); col.textContent=c?'Show':'Hide'; col.setAttribute('aria-expanded',!c); };
+function setCollapsed(c){ card.classList.toggle('collapsed',c); col.textContent=c?'More':'Less'; col.setAttribute('aria-expanded',!c); if(c) shareBox.hidden=true; }
+col.onclick=()=>setCollapsed(!card.classList.contains('collapsed'));
+if(matchMedia('(max-width:640px)').matches) setCollapsed(true);
+document.getElementById('share').addEventListener('click',()=>{ if(!shareBox.hidden && card.classList.contains('collapsed')) setCollapsed(false); });
 
 // ---------- run ----------
 camera.position.set(45,60,30); controls.target.set(-2,0,-18);
