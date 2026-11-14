@@ -6,7 +6,9 @@
 <meta name="description" content="Unofficial 3D walk-through of the Shelly Beach, Manly foreshore renewal concept plan, by Swim Manly. Flip between current and proposed at every stop.">
 <meta property="og:title" content="Shelly Beach in 3D">
 <meta property="og:description" content="See what the Shelly Beach foreshore renewal changes: current vs proposed, in 3D. A Swim Manly community project.">
-<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)} body{margin:0;font:14px system-ui,-apple-system,sans-serif} [hidden]{display:none!important}</style>
+<meta name="theme-color" content="#bcd9e6">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<style>body{margin:0;font:14px system-ui,-apple-system,sans-serif} [hidden]{display:none!important}</style>
 <meta charset="utf-8">
 <title>Shelly Beach in 3D</title>
 <link rel="icon" type="image/png" href="data:image/png;base64,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">
@@ -26,9 +28,11 @@
   --accent:#4fc3c9; --accent-fg:#06201f; color-scheme:dark}}
 :root[data-theme="dark"]{--bg:#0f1716; --card:rgba(20,30,29,.94); --fg:#e7efed; --muted:#9db0ab; --line:#2c3b39;
   --accent:#4fc3c9; --accent-fg:#06201f; color-scheme:dark}
-html,body{height:100%}
-body{background:var(--bg); color:var(--fg); font-family:var(--body); overflow:hidden}
-#scene{position:fixed; inset:0; display:block; width:100%; height:100%; touch-action:none}
+html,body{height:100%; background:#bcd9e6}
+:root{padding:0 !important}
+body{background:#bcd9e6; color:var(--fg); font-family:var(--body); overflow:hidden; overscroll-behavior:none}
+#scene{position:fixed; inset:0; display:block; width:100vw; height:100vh; height:100lvh; touch-action:none}
+.fs{border:0; background:transparent; color:var(--fg); font:600 .82rem var(--body); padding:6px 10px 6px 2px; cursor:pointer; white-space:nowrap}
 .card{position:fixed; z-index:5; top:calc(12px + env(safe-area-inset-top,0px)); left:calc(12px + env(safe-area-inset-left,0px));
   width:min(380px, calc(100% - 24px)); max-height:calc(100% - 24px - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px));
   overflow:auto; background:var(--card); backdrop-filter:blur(8px); border:1px solid var(--line); border-radius:14px;
@@ -84,8 +88,15 @@ a.ghost{text-decoration:none; display:inline-block}
   .switchbar{top:calc(10px + env(safe-area-inset-top,0px)); bottom:auto}
   .cp button{padding:8px 12px; min-width:80px; font-size:.88rem}
   .keyhint{display:none}
-  .card{top:auto; bottom:calc(8px + env(safe-area-inset-bottom,0px)); left:calc(8px + env(safe-area-inset-left,0px)); width:calc(100% - 16px - env(safe-area-inset-left,0px) - env(safe-area-inset-right,0px));
-    max-height:65%; padding-block:10px; padding-left:12px; padding-right:12px; gap:8px; border-radius:12px}
+  /* phone: the 3D view sits above the panel instead of behind it */
+  #scene{height:calc(100% - var(--cardH, 0px))}
+  .card{top:auto; bottom:0; left:0; right:0; width:auto; max-width:none; box-sizing:border-box;
+    max-height:65%; padding-top:10px; padding-bottom:calc(10px + env(safe-area-inset-bottom,0px));
+    padding-left:max(12px, env(safe-area-inset-left,0px)); padding-right:max(12px, env(safe-area-inset-right,0px));
+    gap:8px; border-radius:14px 14px 0 0; border-width:1px 0 0 0; box-shadow:0 -4px 16px rgba(0,0,0,.10)}
+  .switchbar{left:8px; right:8px; transform:none; justify-content:center; flex-wrap:wrap; gap:4px 8px; padding:4px; border-radius:18px}
+  .fs{padding:4px 8px}
+  .hl{padding-right:4px}
   .card.collapsed{max-height:32%}
   .card.collapsed .more{display:none}
   .card.collapsed .brand{padding-bottom:0; border-bottom:0}
@@ -145,7 +156,7 @@ a.ghost{text-decoration:none; display:inline-block}
       <p class="stop" id="stop-title">Walk-through</p>
       <span class="count" id="stop-count"></span>
     </div>
-    <p class="stop-text" id="stop-text">Press Start to walk the site at eye height, or drag to look around.</p>
+    <p class="stop-text" id="stop-text">Press Start for a guided tour, or drag to look around.</p>
     <div class="nav">
       <button id="prev">Back</button>
       <button id="next" class="primary">Start</button>
@@ -161,6 +172,7 @@ a.ghost{text-decoration:none; display:inline-block}
     <button id="v-plan" aria-pressed="true">Proposed</button>
   </div>
   <label class="hl" for="hl"><input type="checkbox" id="hl" checked> Highlight changes</label>
+  <button class="fs" id="fs" hidden>Full screen</button>
   <span class="keyhint">Space to flip</span>
 </div>
 
@@ -345,7 +357,7 @@ const L = n => { const a=GEO.labels.filter(l=>l[0]===n); return a.length? [a[0][
 const STOPS = [
   {t:'Arriving from Manly', d:'Coming along Marine Parade at the southern end. The plan adds feature sandstone boulders here and raises the shower platform so it can be reached without a kerb.', from:[24,1.7,58], at:[17,1,40]},
   {t:'The new promenade', d:'The narrow path beside Marine Parade becomes a wide strip of sandstone paving "to encourage gathering". Flip to Current to see the path it replaces.', from:[26,1.7,34], at:[18,0.5,10]},
-  {t:'Sand to lawn', d:'Looking north from the beach, a little above head height: the large green area is new lawn on what is sand today, edged by a sandstone log wall. Flip to Current to see the sand under the palms now.', from:[2,5,-6], at:[-9,0,-31], hl:false},
+  {t:'Sand to lawn', d:'Looking north from the beach: the large green area is new lawn on what is sand today, edged by a sandstone log wall. Flip to Current to see the sand under the palms now.', from:[2,5,-6], at:[-9,0,-31], hl:false},
   {t:'Junction and feature garden', d:'The paths from Bower Street, the walking track and Marine Parade meet at a new paved junction with a feature garden and new low walls.', from:[16,5,-28], at:[4,0,-43]},
   {t:'BBQ area', d:'The BBQs and bins stay but are reinstalled on new coloured concrete. Several existing picnic settings are removed and new tables are placed around the lawn.', from:[3,7,-30], at:[-12,0,-47], hl:false},
   {t:'Diving breakout area', d:'The area used by divers and snorkellers to kit up is kept, but resurfaced in rubber.', from:[6,6,-36], at:[16,0,-47], hl:false},
@@ -358,13 +370,20 @@ function flyTo(from, at, ms=1600){
   const start=performance.now(); anim = now=>{ let k=reduce?1:Math.min(1,(now-start)/ms); k=k<.5?2*k*k:1-Math.pow(-2*k+2,2)/2;
     camera.position.lerpVectors(p0,p1,k); controls.target.lerpVectors(t0,t1,k); if(k>=1) anim=null; };
 }
+// Tour views sit back and above each spot so more of the site is in frame (further on tall phone screens).
+function pullBack(s){
+  if(s.from[1] > 30) return s.from;                       // aerial stop: keep as is
+  const k = innerHeight > innerWidth ? 2.6 : 2.0;
+  const [fx,fy,fz]=s.from, [ax,ay,az]=s.at;
+  return [ax+(fx-ax)*k, Math.max(9, ay+(fy-ay)*k + 4), az+(fz-az)*k];
+}
 function showStop(i){
   stop=i; const s=STOPS[i];
   document.getElementById('stop-title').textContent=s.t;
   document.getElementById('stop-text').textContent=s.d;
   document.getElementById('stop-count').textContent=`${i+1} / ${STOPS.length}`;
   document.getElementById('next').textContent = i===STOPS.length-1 ? 'Restart' : 'Next';
-  setMode('plan', s.hl ?? true); flyTo(s.from, s.at);
+  setMode('plan', s.hl ?? true); flyTo(pullBack(s), s.at);
 }
 document.getElementById('next').onclick=()=>showStop(stop>=STOPS.length-1?0:stop+1);
 document.getElementById('prev').onclick=()=>showStop(Math.max(0,stop-1));
@@ -401,8 +420,24 @@ document.getElementById('share').addEventListener('click',()=>{ if(!shareBox.hid
 // ---------- run ----------
 camera.position.set(45,60,30); controls.target.set(-2,0,-18);
 setMode('plan', true);
-function resize(){ const w=innerWidth,h=innerHeight; renderer.setSize(w,h,false); camera.aspect=w/h; camera.updateProjectionMatrix(); }
+function resize(){ const w=canvas.clientWidth||innerWidth, h=canvas.clientHeight||innerHeight; renderer.setSize(w,h,false); camera.aspect=w/h; camera.updateProjectionMatrix(); }
 addEventListener('resize',resize); resize();
+if(window.ResizeObserver) new ResizeObserver(resize).observe(canvas);
+// on phones, keep the 3D view clear of the bottom panel
+const phoneMQ=matchMedia('(max-width:640px)');
+function fitCard(){ document.documentElement.style.setProperty('--cardH', phoneMQ.matches ? document.getElementById('card').offsetHeight+'px' : '0px'); resize(); }
+if(window.ResizeObserver) new ResizeObserver(fitCard).observe(document.getElementById('card'));
+addEventListener('resize',fitCard); fitCard();
+// Full screen (where the browser allows it; iPhone Safari does not)
+const fsBtn=document.getElementById('fs'), root=document.documentElement;
+const fsReq=root.requestFullscreen||root.webkitRequestFullscreen, fsExit=document.exitFullscreen||document.webkitExitFullscreen;
+if(fsReq && (document.fullscreenEnabled||document.webkitFullscreenEnabled)){
+  fsBtn.hidden=false;
+  fsBtn.onclick=()=>{ const on=document.fullscreenElement||document.webkitFullscreenElement;
+    try{ const p = on ? fsExit.call(document) : fsReq.call(root); if(p&&p.catch) p.catch(()=>{}); }catch(e){} };
+  const upd=()=>{ fsBtn.textContent=(document.fullscreenElement||document.webkitFullscreenElement)?'Exit full screen':'Full screen'; setTimeout(resize,50); };
+  document.addEventListener('fullscreenchange',upd); document.addEventListener('webkitfullscreenchange',upd);
+}
 renderer.setAnimationLoop(now=>{ if(anim) anim(now); controls.update(); renderer.render(scene,camera); });
 </script>
 
