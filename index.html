@@ -145,6 +145,7 @@ renderer.setPixelRatio(Math.min(devicePixelRatio,2));
 renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0xbcd9e6);
+scene.fog = new THREE.Fog(0xbcd9e6, 120, 260);
 const camera = new THREE.PerspectiveCamera(50, 1, 0.1, 5000);
 const controls = new THREE.OrbitControls(camera, canvas);
 controls.enableDamping = true; controls.maxPolarAngle = Math.PI*0.495; controls.minDistance = 2; controls.maxDistance = 220;
