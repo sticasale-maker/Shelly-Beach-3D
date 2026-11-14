@@ -145,8 +145,7 @@ renderer.setPixelRatio(Math.min(devicePixelRatio,2));
 renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0xbcd9e6);
-scene.fog = new THREE.Fog(0xbcd9e6, 120, 260);
-const camera = new THREE.PerspectiveCamera(50, 1, 0.1, 600);
+const camera = new THREE.PerspectiveCamera(50, 1, 0.1, 5000);
 const controls = new THREE.OrbitControls(camera, canvas);
 controls.enableDamping = true; controls.maxPolarAngle = Math.PI*0.495; controls.minDistance = 2; controls.maxDistance = 220;
 
@@ -158,12 +157,13 @@ Object.assign(sun.shadow.camera,{left:-80,right:80,top:80,bottom:-80,near:1,far:
 scene.add(sun);
 
 // ground: wide surround + aerial photo
-const surround = new THREE.Mesh(new THREE.PlaneGeometry(600,600), new THREE.MeshLambertMaterial({color:0x7f9a7a}));
+const surround = new THREE.Mesh(new THREE.PlaneGeometry(4000,4000), new THREE.MeshLambertMaterial({color:0x7f9a7a}));
 surround.rotation.x = -Math.PI/2; surround.position.y = -0.05; scene.add(surround);
 const sea = new THREE.Mesh(new THREE.PlaneGeometry(400,200), new THREE.MeshLambertMaterial({color:0x5c97a8}));
 sea.rotation.x = -Math.PI/2; sea.position.set(-60,-0.04,160); scene.add(sea);
 const tex = new THREE.TextureLoader().load(AERIAL);
-tex.anisotropy = 8;
+tex.anisotropy = renderer.capabilities.getMaxAnisotropy();
+tex.minFilter = THREE.LinearMipmapLinearFilter;
 const aerial = new THREE.Mesh(new THREE.PlaneGeometry(AER.x1-AER.x0, AER.z1-AER.z0), new THREE.MeshLambertMaterial({map:tex}));
 aerial.rotation.x = -Math.PI/2; aerial.position.set((AER.x0+AER.x1)/2, 0, (AER.z0+AER.z1)/2);
 aerial.receiveShadow = true; scene.add(aerial);
